@@ -54,37 +54,26 @@ public class Application {
   }
 
   public Boolean canShoot(PlayerState me, ArenaUpdate arenaUpdate) {
-     if (me.direction == "N") {
-      for (String key : arenaUpdate.arena.state.keySet()) {
-        PlayerState enemy = arenaUpdate.arena.state.get(key);
-        if (enemy.x == me.x && enemy.y == me.y)
+    for (String key : arenaUpdate.arena.state.keySet()) {
+      PlayerState enemy = arenaUpdate.arena.state.get(key);
+      System.out.println("Me:"+me.x+"|"+me.y+"|"+me.direction);
+      System.out.println("Me:"+enemy.x+"|"+enemy.y);
+      if (enemy.x == me.x && enemy.y == me.y)
           continue;
+     if (me.direction == "N") {
         if (me.x == enemy.x && me.y - enemy.y <= 3) 
           return true;
-      }
      } else if (me.direction == "E") {
-        for (String key : arenaUpdate.arena.state.keySet()) {
-          PlayerState enemy = arenaUpdate.arena.state.get(key);
-          if (enemy.x == me.x && enemy.y == me.y)
-            continue;
           if (me.y == enemy.y && enemy.x - me.x <= 3) 
             return true;
-        }
+        
      } else if (me.direction == "S") {
-        for (String key : arenaUpdate.arena.state.keySet()) {
-          PlayerState enemy = arenaUpdate.arena.state.get(key);
-          if (enemy.x == me.x && enemy.y == me.y)
-            continue;
+       
           if (me.x == enemy.x && enemy.y - me.y <= 3) 
-            return false;
-        }
+          return true;
      } else {
-      for (String key : arenaUpdate.arena.state.keySet()) {
-        PlayerState enemy = arenaUpdate.arena.state.get(key);
-        if (enemy.x == me.x && enemy.y == me.y)
-          continue;
         if (me.y == enemy.y && me.x - enemy.x <= 3) 
-          return false;
+        return true;
       }
      }
      return false;
