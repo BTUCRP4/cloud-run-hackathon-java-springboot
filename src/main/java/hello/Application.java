@@ -116,6 +116,9 @@ public class Application {
           result = "L";
         }
 
+        if (true)
+          return result;
+
         if (me.wasHit) {
           result = commands[0];
         }
