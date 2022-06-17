@@ -100,14 +100,21 @@ public class Application {
 
         if (canShoot(me, arenaUpdate)) {
           result =  "T";
-        }
+        } else {
 
-        if (me.wasHit) {
-          result = commands[0];
+          if (me.wasHit) {
+            if (me.direction == "N") {
+              if (me.y>1)
+                result = "F";
+            } else if (me.direction == "W") {
+              if (me.x>1)
+                result = "F";
+            }
+            result = "R";
+          } else {
+             result = commands[new Random().nextInt(4)];
+          }
         }
-
-        i = new Random().nextInt(4);
-        result = commands[i];
       } catch (Exception e) {
         result =  "T";
       }
