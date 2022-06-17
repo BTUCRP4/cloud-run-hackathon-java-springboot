@@ -67,7 +67,6 @@ public class Application {
      } else if (me.direction == "E") {
           if (me.y == enemy.y && enemy.x - me.x <= 3) 
             return true;
-        
      } else if (me.direction == "S") {
        
           if (me.x == enemy.x && enemy.y - me.y <= 3) 
@@ -101,13 +100,8 @@ public class Application {
 
         if (canShoot(me, arenaUpdate)) {
           //return commands[3];
-          result =  "R";
-        } else {
-          result = "L";
+          result =  "T";
         }
-
-        if (true)
-          return result;
 
         if (me.wasHit) {
           result = commands[0];
