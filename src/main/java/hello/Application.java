@@ -68,7 +68,7 @@ public class Application {
           if (enemy.x == me.x && enemy.y == me.y)
             continue;
           if (me.y == enemy.y && enemy.x - me.x <= 3) 
-            return false;
+            return true;
         }
      } else if (me.direction == "S") {
         for (String key : arenaUpdate.arena.state.keySet()) {
