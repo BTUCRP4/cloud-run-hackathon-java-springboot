@@ -119,7 +119,7 @@ public class Application {
         i = new Random().nextInt(4);
         return commands[i];
       } catch (Exception e) {
-        return "F";
+        return "T";
       }
 
 
