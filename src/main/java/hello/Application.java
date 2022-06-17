@@ -99,7 +99,6 @@ public class Application {
         PlayerState me = getMyLocation (arenaUpdate);
 
         if (canShoot(me, arenaUpdate)) {
-          //return commands[3];
           result =  "T";
         }
 
@@ -112,6 +111,8 @@ public class Application {
       } catch (Exception e) {
         result =  "T";
       }
+
+      System.out.println("Action:"+ result);
       return result;
 
   }
