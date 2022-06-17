@@ -54,10 +54,11 @@ public class Application {
   }
 
   public Boolean canShoot(PlayerState me, ArenaUpdate arenaUpdate) {
+    System.out.println("Me:"+me.x+"|"+me.y+"|"+me.direction);
     for (String key : arenaUpdate.arena.state.keySet()) {
       PlayerState enemy = arenaUpdate.arena.state.get(key);
-      System.out.println("Me:"+me.x+"|"+me.y+"|"+me.direction);
-      System.out.println("Me:"+enemy.x+"|"+enemy.y);
+      
+      System.out.println("Enemry:"+enemy.x+"|"+enemy.y);
       if (enemy.x == me.x && enemy.y == me.y)
           continue;
      if (me.direction == "N") {
