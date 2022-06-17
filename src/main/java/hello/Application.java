@@ -91,7 +91,7 @@ public class Application {
 
 
   public PlayerState getMyLocation (ArenaUpdate arenaUpdate) {
-    PlayerState me = arenaUpdate.Arena.state.get(arenaUpdate._links.self.href);
+    PlayerState me = arenaUpdate.arena.state.get(arenaUpdate._links.self.href);
     return me;
   }
 
