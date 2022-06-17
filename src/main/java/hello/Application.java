@@ -107,7 +107,7 @@ public class Application {
       return commands[3];
     }
 
-    if (me.wasHist) {
+    if (me.wasHit) {
       return commands[0];
     }
 
