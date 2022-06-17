@@ -98,33 +98,34 @@ public class Application {
 
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
+    String result = "T";
     try {
         System.out.println(arenaUpdate);
         String[] commands = new String[]{"F", "R", "L", "T"};
         int i = new Random().nextInt(4);
         //if (true)
         //  return commands[i];
-
+        
 
         PlayerState me = getMyLocation (arenaUpdate);
 
         if (canShoot(me, arenaUpdate)) {
           //return commands[3];
-          return "R";
+          result =  "R";
         } else {
-          return "L";
+          result = "L";
         }
 
         if (me.wasHit) {
-          return commands[0];
+          result = commands[0];
         }
 
         i = new Random().nextInt(4);
-        return commands[i];
+        result = commands[i];
       } catch (Exception e) {
-        return "T";
+        result =  "T";
       }
-
+      return result;
 
   }
 
