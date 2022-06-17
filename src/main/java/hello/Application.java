@@ -100,6 +100,7 @@ public class Application {
     System.out.println(arenaUpdate);
     
     String[] commands = new String[]{"F", "R", "L", "T"};
+
     PlayerState me = getMyLocation (arenaUpdate);
 
     if (canShoot(me, arenaUpdate)) {
@@ -112,6 +113,8 @@ public class Application {
 
     int i = new Random().nextInt(4);
     return commands[0];
+
+
   }
 
 }
