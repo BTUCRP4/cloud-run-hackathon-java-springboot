@@ -34,7 +34,7 @@ public class Application {
     public Map<String, PlayerState> state;
   }
 
-  static class ArenaUpdate {
+  static class ArenaUpdate { 
     public Links _links;
     public Arena arena;
   }
@@ -53,13 +53,65 @@ public class Application {
     return "Let the battle begin!";
   }
 
+  public Boolean canShoot(PlayerState me, ArenaUpdate arenaUpdate) {
+     if (me.direction == 'N') {
+      for (String key : state.keySet()) {
+        PlayerState enemy = arenaUpdate.Arena.state.get(key);
+        if (enemy.x == me.x && enemy.y == me.y)
+          continue;
+        if (me.x == enemy.x && me.y - enemy.y <= 3) 
+          return true;
+      }
+     } else if (me.direction == 'E') {
+        for (String key : state.keySet()) {
+          PlayerState enemy = arenaUpdate.Arena.state.get(key);
+          if (enemy.x == me.x && enemy.y == me.y)
+            continue;
+          if (me.y == enemy.y && enemy.x - me.x <= 3) 
+            return true;
+        }
+     } else if (me.direction == 'S') {
+        for (String key : state.keySet()) {
+          PlayerState enemy = arenaUpdate.Arena.state.get(key);
+          if (enemy.x == me.x && enemy.y == me.y)
+            continue;
+          if (me.x == enemy.x && enemy.y - me.y <= 3) 
+            return true;
+        }
+     } else {
+      for (String key : state.keySet()) {
+        PlayerState enemy = arenaUpdate.Arena.state.get(key);
+        if (enemy.x == me.x && enemy.y == me.y)
+          continue;
+        if (me.y == enemy.y && me.x - enemy.x <= 3) 
+          return true;
+      }
+     }
+  }
+
+
+  public PlayerState getMyLocation (ArenaUpdate arenaUpdate) {
+    PlayerState me = arenaUpdate.Arena.state.get(arenaUpdate._links.self.href);
+    return me;
+  }
+
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     System.out.println(arenaUpdate);
+    
     String[] commands = new String[]{"F", "R", "L", "T"};
-    //int i = new Random().nextInt(4);
+    PlayerState me = getMyLocation (arenaUpdate);
+
+    if (canShoot(me, arenaUpdate)) {
+      return commands[3];
+    }
+
+    if (me.wasHist) {
+      return commands[0];
+    }
+
     int i = new Random().nextInt(4);
-    return commands[3];
+    return commands[0];
   }
 
 }
