@@ -113,7 +113,7 @@ public class Application {
     }
 
     int i = new Random().nextInt(4);
-    return commands[0];
+    return commands[i];
 
 
   }
