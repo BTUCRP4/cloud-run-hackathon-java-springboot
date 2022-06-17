@@ -68,7 +68,7 @@ public class Application {
           if (enemy.x == me.x && enemy.y == me.y)
             continue;
           if (me.y == enemy.y && enemy.x - me.x <= 3) 
-            return true;
+            return false;
         }
      } else if (me.direction == "S") {
         for (String key : arenaUpdate.arena.state.keySet()) {
@@ -76,7 +76,7 @@ public class Application {
           if (enemy.x == me.x && enemy.y == me.y)
             continue;
           if (me.x == enemy.x && enemy.y - me.y <= 3) 
-            return true;
+            return false;
         }
      } else {
       for (String key : arenaUpdate.arena.state.keySet()) {
@@ -84,7 +84,7 @@ public class Application {
         if (enemy.x == me.x && enemy.y == me.y)
           continue;
         if (me.y == enemy.y && me.x - enemy.x <= 3) 
-          return true;
+          return false;
       }
      }
      return false;
@@ -111,6 +111,8 @@ public class Application {
         if (canShoot(me, arenaUpdate)) {
           //return commands[3];
           return "R";
+        } else {
+          return "L";
         }
 
         if (me.wasHit) {
