@@ -55,7 +55,7 @@ public class Application {
 
   public Boolean canShoot(PlayerState me, ArenaUpdate arenaUpdate) {
      if (me.direction == "N") {
-      for (String key : state.keySet()) {
+      for (String key : arenaUpdate.arena.state.keySet()) {
         PlayerState enemy = arenaUpdate.arena.state.get(key);
         if (enemy.x == me.x && enemy.y == me.y)
           continue;
@@ -63,7 +63,7 @@ public class Application {
           return true;
       }
      } else if (me.direction == "E") {
-        for (String key : state.keySet()) {
+        for (String key : arenaUpdate.arena.state.keySet()) {
           PlayerState enemy = arenaUpdate.arena.state.get(key);
           if (enemy.x == me.x && enemy.y == me.y)
             continue;
@@ -71,7 +71,7 @@ public class Application {
             return true;
         }
      } else if (me.direction == "S") {
-        for (String key : state.keySet()) {
+        for (String key : arenaUpdate.arena.state.keySet()) {
           PlayerState enemy = arenaUpdate.arena.state.get(key);
           if (enemy.x == me.x && enemy.y == me.y)
             continue;
@@ -79,7 +79,7 @@ public class Application {
             return true;
         }
      } else {
-      for (String key : state.keySet()) {
+      for (String key : arenaUpdate.arena.state.keySet()) {
         PlayerState enemy = arenaUpdate.arena.state.get(key);
         if (enemy.x == me.x && enemy.y == me.y)
           continue;
