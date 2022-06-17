@@ -99,10 +99,11 @@ public class Application {
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     System.out.println(arenaUpdate);
+    String[] commands = new String[]{"F", "R", "L", "T"};
     int i = new Random().nextInt(4);
     if (true)
       return commands[i];
-    String[] commands = new String[]{"F", "R", "L", "T"};
+
 
     PlayerState me = getMyLocation (arenaUpdate);
 
