@@ -115,7 +115,7 @@ public class Application {
       return commands[0];
     }
 
-    int i = new Random().nextInt(4);
+     i = new Random().nextInt(4);
     return commands[i];
 
 
