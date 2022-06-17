@@ -109,7 +109,8 @@ public class Application {
         PlayerState me = getMyLocation (arenaUpdate);
 
         if (canShoot(me, arenaUpdate)) {
-          return commands[3];
+          //return commands[3];
+          return "R";
         }
 
         if (me.wasHit) {
